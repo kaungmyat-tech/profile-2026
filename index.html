@@ -1,0 +1,3543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaung Myat Kyaw | Business Analyst Portfolio</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        :root {
+            /* Dark Theme Palette based on Reference Image */
+            --bg-dark: #1a1f36;       /* Deep Navy Background */
+            --bg-card: #262d42;       /* Lighter Card Background */
+            --bg-input: #131722;      /* Darker Input/Footer */
+            --accent: #f4b400;        /* Mustard Yellow Accent */
+            --accent-hover: #d49a00;
+            --text-main: #ffffff;
+            --text-secondary: #a0a0a0;
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--text-secondary);
+            color: var(--text-secondary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+        }
+
+        /* --- Header / Nav --- */
+        header {
+            background-color: var(--bg-card);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-main);
+            font-weight: 500;
+            padding: 10px 0;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            z-index: 1001;
+            margin-top: 10px;
+        }
+
+        .nav-item:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(5px);
+        }
+
+        .dropdown-content {
+            padding: 20px;
+        }
+
+        .dropdown-content h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .dropdown-content p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .dropdown-content ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-content li {
+            color: var(--text-secondary);
+            padding: 5px 0;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-content li:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 160px 0 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            min-height: 90vh;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-subtitle {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-headline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-img-wrapper {
+            width: 400px;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Decorative elements */
+        .decor-circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.1;
+            z-index: -1;
+            filter: blur(40px);
+        }
+
+        .circle-1 { top: -50px; right: -50px; }
+        .circle-2 { bottom: -50px; left: -50px; }
+
+        /* --- About Section ("Why Hire Me") --- */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--bg-card);
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-visual img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-text h2 span {
+            color: var(--accent);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        /* --- Experience Section --- */
+        .experience-section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--bg-dark);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: inline-block;
+            background: rgba(244, 180, 0, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* --- Projects / Showcase --- */
+        .projects-section {
+            padding: 100px 0;
+            background-color: var(--bg-card);
+        }
+
+        .project-showcase {
+            background-color: var(--bg-dark);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-bottom: 40px;
+            transition: var(--transition);
+        }
+
+        .project-showcase:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .project-header {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .project-subtitle {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 30px 0;
+            background: var(--bg-input);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: var(--bg-input);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: rgba(244, 180, 0, 0.1);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--accent);
+        }
+
+        .interactive-demo {
+            background: var(--bg-input);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .demo-btn {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .demo-btn:hover, .demo-btn.active {
+            background: var(--accent);
+            color: var(--bg-dark);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Animated drawing elements */
+        .animated-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 2s ease-in-out forwards;
+        }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .chart-animation {
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .metric-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244, 180, 0, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .metric-card:hover::before {
+            left: 100%;
+        }
+
+        .project-showcase {
+            position: relative;
+        }
+
+        .floating-icon {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 3rem;
+            color: var(--accent);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        /* --- Modal Styles --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--bg-card);
+            margin: 2% auto;
+            padding: 0;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .modal-header {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--text-secondary);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-close:hover {
+            color: var(--text-main);
+            background: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .workflow-diagram {
+            background: var(--bg-input);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+        }
+
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .workflow-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 50px;
+            width: 2px;
+            height: 20px;
+            background: var(--accent);
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+            background: var(--bg-dark);
+            padding: 15px 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .step-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Compact Project Cards */
+        .compact-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .compact-project-card {
+            background: var(--bg-dark);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .compact-project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .compact-project-img {
+            height: 200px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-input) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .compact-project-img::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(244, 180, 0, 0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .compact-project-content {
+            padding: 25px;
+        }
+
+        .compact-project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .compact-project-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .compact-project-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background: rgba(244, 180, 0, 0.1);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--bg-dark);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-link:hover {
+            gap: 12px;
+        }
+
+        /* --- Enhanced Skills Section --- */
+        .skills-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .skill-item {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .skill-level {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 5px;
+            font-size: 1.1rem;
+        }
+
+        .star {
+            color: var(--border);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .star.filled {
+            color: var(--accent);
+            animation: starPulse 0.5s ease-in-out;
+        }
+
+        .star.half {
+            position: relative;
+            color: var(--border);
+        }
+
+        .star.half::before {
+            content: '\2605';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            overflow: hidden;
+            width: 50%;
+        }
+
+        @keyframes starPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .skill-progress {
+            height: 4px;
+            background: var(--bg-input);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+            border-radius: 2px;
+            transition: width 1s ease-in-out;
+            width: 0;
+            animation: progressGrow 1s ease-in-out forwards;
+        }
+
+        @keyframes progressGrow {
+            to {
+                width: var(--progress-width);
+            }
+        }
+
+        .skill-category:hover .star {
+            transform: scale(1.1);
+        }
+
+        .skill-category:hover .star.filled {
+            filter: drop-shadow(0 0 8px rgba(244, 180, 0, 0.5));
+        }
+
+        /* Data Architecture Diagram Styles */
+        .data-architecture-diagram {
+            background: var(--bg-input);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+        }
+
+        .architecture-container {
+            position: relative;
+            min-height: 500px;
+        }
+
+        .table-relationships {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .db-table {
+            background: var(--bg-dark);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .db-table:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: var(--bg-dark);
+            font-weight: 600;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .table-fields {
+            padding: 15px;
+        }
+
+        .field {
+            padding: 6px 10px;
+            margin: 3px 0;
+            background: var(--bg-input);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: 'Courier New', monospace;
+            border-left: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .field:hover {
+            background: rgba(244, 180, 0, 0.1);
+            border-left-color: var(--accent);
+        }
+
+        .primary-key {
+            border-left-color: #4ade80;
+            background: rgba(74, 222, 128, 0.1);
+            font-weight: 600;
+        }
+
+        .foreign-key {
+            border-left-color: #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+            font-weight: 600;
+        }
+
+        .relationship-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .relationship-line {
+            animation: drawLine 2s ease-in-out forwards;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .data-flow-annotations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .annotation {
+            background: var(--bg-dark);
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .annotation:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .annotation h5 {
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .annotation ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .annotation li {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .annotation li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Table positioning for architecture */
+        .customers-table { grid-column: 1; grid-row: 1; }
+        .orders-table { grid-column: 1; grid-row: 2; }
+        .products-table { grid-column: 2; grid-row: 1; }
+        .order-items-table { grid-column: 2; grid-row: 2; }
+        .segments-table { grid-column: 3; grid-row: 1; }
+        .analytics-table { grid-column: 3; grid-row: 2; }
+
+        /* --- Footer / Contact --- */
+        footer {
+            background-color: var(--bg-input);
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-cta p {
+            color: var(--text-secondary);
+        }
+
+        .viber-qr {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .telegram-qr {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-codes {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .viber-qr img,
+        .telegram-qr img {
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .viber-qr img:hover,
+        .telegram-qr img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(244, 180, 0, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-details {
+            display: flex;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            color: var(--accent);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 120px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-headline {
+                margin: 0 auto 40px;
+            }
+
+            .hero-img-wrapper {
+                width: 300px;
+                height: 380px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .qr-codes {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+
+            .viber-qr {
+                order: 2;
+            }
+
+            .telegram-qr {
+                order: 3;
+            }
+
+            .social-links {
+                order: 4;
+                justify-content: center;
+            }
+
+            .contact-details {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 120px 0 80px;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-dropdown {
+                min-width: 200px;
+                left: auto;
+                right: 0;
+                transform: translateX(0);
+            }
+
+            .nav-item:hover .nav-dropdown {
+                transform: translateX(0) translateY(5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simple hide for mobile for this demo */
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+            
+            .timeline-item {
+                padding-left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-chart-line"></i> Growth
+            </a>
+            <nav class="nav-links">
+                <div class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                    <div class="nav-dropdown">
+                        <div class="dropdown-content">
+                            <h4>About Me</h4>
+                            <p>Experienced Business Analyst with 9+ years in data analysis, strategy development, and business optimization.</p>
+                            <ul>
+                                <li>• Data Analysis & Insights</li>
+                                <li>• Strategic Planning</li>
+                                <li>• Process Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <div class="nav-dropdown">
+                        <div class="dropdown-content">
+                            <h4>Professional Journey</h4>
+                            <p>Diverse experience across multiple industries and roles.</p>
+                            <ul>
+                                <li>• Business Analysis</li>
+                                <li>• Data Analytics</li>
+                                <li>• Project Management</li>
+                                <li>• Team Leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <div class="nav-dropdown">
+                        <div class="dropdown-content">
+                            <h4>Featured Work</h4>
+                            <p>Real-world projects showcasing technical and analytical skills.</p>
+                            <ul>
+                                <li>• E-commerce Analytics</li>
+                                <li>• Telecom Network Analysis</li>
+                                <li>• Business Intelligence</li>
+                                <li>• Automation Solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <div class="nav-dropdown">
+                        <div class="dropdown-content">
+                            <h4>Get in Touch</h4>
+                            <p>Multiple ways to connect and collaborate.</p>
+                            <ul>
+                                <li>• Direct Messaging</li>
+                                <li>• Social Networks</li>
+                                <li>• Email & Phone</li>
+                                <li>• QR Code Connect</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <a href="#contact" class="btn btn-primary">Let's Chat</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="hero-content">
+            <div class="hero-subtitle">Hello, I'm</div>
+            <h1 class="hero-title">Kaung Myat Kyaw</h1>
+            <p class="hero-headline">Business Analyst | Bridging Data, Strategy, and Business Outcomes</p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; @media(min-width: 992px){justify-content: flex-start;}">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#experience" class="btn btn-outline">My Experience</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="decor-circle circle-1"></div>
+            <div class="hero-img-wrapper">
+                <img src="profile.jpg" alt="Kaung Myat Kyaw">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container about-grid">
+            <div class="about-visual">
+                <img src="https://image.qwenlm.ai/public_source/a38d6625-6e90-4184-8b6a-5a5ca90f408b/1da4d30f1-c245-4101-8749-53ec7c2b4e6c.png" alt="Analytics Dashboard">
+            </div>
+            <div class="about-text">
+                <h4 style="color: var(--accent); margin-bottom: 10px;">ABOUT ME</h4>
+                <h2>Why hire me for your<br><span>next project?</span></h2>
+                <p>
+                    I am an experienced professional with over 9+ years of expertise in office administration, production management, sales, marketing, and data analysis. 
+                </p>
+                <p>
+                    My leadership experience, combined with my operational expertise, allows me to manage teams and projects effectively. I have pursued self-study in MySQL, Python, and R programming, which I use to automate tasks and analyze large datasets. I am highly motivated, detail-oriented, and committed to driving results and delivering excellence.
+                </p>
+                <a href="#contact" class="btn btn-primary">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section container">
+        <div class="section-header">
+            <h2>My Experience</h2>
+            <p>A journey through data, strategy, and leadership</p>
+        </div>
+        
+        <div class="timeline">
+            <!-- Job 1 -->
+            <div class="timeline-item">
+                <span class="timeline-date">Nov 2025 - Present</span>
+                <h3 class="timeline-title">Business Analyst</h3>
+                <div class="timeline-company">BLAZON GROUP · Full-time</div>
+                <p class="timeline-desc">
+                    Analyzing eCommerce performance across Shopify using SQL, dashboards, and automated reporting workflows. Building data models, tracking KPIs, optimizing funnels, and improving operational efficiency.
+                </p>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="timeline-item">
+                <span class="timeline-date">Mar 2024 - Sep 2025</span>
+                <h3 class="timeline-title">Telecom Data Analyst</h3>
+                <div class="timeline-company">Myanmar Padauk Engineering & Construction</div>
+                <p class="timeline-desc">
+                    Gathering and compiling telecom data from network logs. Ensuring data integrity and accuracy. Developing dashboards and visualizations to present findings and support decision-making.
+                </p>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="timeline-item">
+                <span class="timeline-date">2021 - 2024</span>
+                <h3 class="timeline-title">Assistant Production Manager</h3>
+                <div class="timeline-company">NILAR FROZEN FOODS CO., LTD</div>
+                <p class="timeline-desc">
+                    Coordinating production schedules, supervising teams, and implementing process improvements that enhanced efficiency and reduced costs. Managing inventory and ensuring compliance with safety regulations.
+                </p>
+            </div>
+
+            <!-- Job 4 -->
+            <div class="timeline-item">
+                <span class="timeline-date">2019 - 2021</span>
+                <h3 class="timeline-title">Personal Assistant</h3>
+                <div class="timeline-company">NILAR HOLDING CO., LTD</div>
+                <p class="timeline-desc">
+                    Managing executive schedules, organizing files, planning events, and assisting in special projects. Tracking project progress and managing budgets.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section container">
+        <div class="section-header">
+            <h2>Technical Skills</h2>
+            <p>Expertise across data analysis, development, and business intelligence</p>
+        </div>
+        
+        <div class="skills-container">
+            <div class="skills-categories">
+                <!-- Data & Analytics -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-chart-line"></i>
+                        Data & Analytics
+                    </h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SQL</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 95%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">R Programming</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 70%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Data Visualization</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Intelligence -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-brain"></i>
+                        Business Intelligence
+                    </h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Tableau/Power BI</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Dashboard Automation</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 80%;"></div>
+                        </div>
+                    </div>
+
+            
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Google Analytics</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development & Tools -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-code"></i>
+                        Development & Tools
+                    </h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML5/CSS3</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 75%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Excel / Sheets</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 95%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">API Integration</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business & Management -->
+                <div class="skill-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-briefcase"></i>
+                        Business & Management
+                    </h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Leadership</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Process Improvement</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Production Planning</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 80%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SOP / ISO 22000</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="star-rating">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star half">★</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" style="--progress-width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Click to explore interactive data analysis solutions</p>
+            </div>
+            
+            <div class="compact-projects">
+                <!-- Telecom Project Card -->
+                <div class="compact-project-card" onclick="openModal('telecom')">
+                    <div class="compact-project-img">
+                        <i class="fas fa-signal"></i>
+                    </div>
+                    <div class="compact-project-content">
+                        <h3 class="compact-project-title">📡 Telecom Performance Monitoring</h3>
+                        <p class="compact-project-desc">
+                            Network analytics and incident management system with real-time monitoring and proactive maintenance scheduling.
+                        </p>
+                        <div class="compact-project-stats">
+                            <span class="stat-badge">86% Uptime</span>
+                            <span class="stat-badge">1000+ Sites</span>
+                            <span class="stat-badge">24/7 Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ecommerce Project Card -->
+                <div class="compact-project-card" onclick="openModal('ecommerce')">
+                    <div class="compact-project-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="compact-project-content">
+                        <h3 class="compact-project-title">🛒 Customer Intelligence Platform</h3>
+                        <p class="compact-project-desc">
+                            Advanced customer analytics with RFM segmentation, daily data sync to Huawei Cloud MySQL, and comprehensive shopper insights.
+                        </p>
+                        <div class="compact-project-stats">
+                            <span class="stat-badge">RFM Analysis</span>
+                            <span class="stat-badge">Huawei Cloud</span>
+                            <span class="stat-badge">360° Customer View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development Project Card -->
+                <div class="compact-project-card" onclick="openModal('webdev')">
+                    <div class="compact-project-img">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="compact-project-content">
+                        <h3 class="compact-project-title">🌐 Personal Portfolio Suite</h3>
+                        <p class="compact-project-desc">
+                            Responsive web development project featuring modern design, interactive components, and optimized performance for personal branding.
+                        </p>
+                        <div class="compact-project-stats">
+                            <span class="stat-badge">React/Vue</span>
+                            <span class="stat-badge">Responsive</span>
+                            <span class="stat-badge">Modern UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automation Project Card -->
+                <div class="compact-project-card" onclick="openModal('automation')">
+                    <div class="compact-project-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="compact-project-content">
+                        <h3 class="compact-project-title">🤖 Business Process Automation</h3>
+                        <p class="compact-project-desc">
+                            Python-based automation system for data processing, report generation, and workflow optimization with significant time savings.
+                        </p>
+                        <div class="compact-project-stats">
+                            <span class="stat-badge">Python</span>
+                            <span class="stat-badge">90% Time Saved</span>
+                            <span class="stat-badge">API Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Visualization Project Card -->
+                <div class="compact-project-card" onclick="openModal('dataviz')">
+                    <div class="compact-project-img">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="compact-project-content">
+                        <h3 class="compact-project-title">📊 Executive Analytics Dashboard</h3>
+                        <p class="compact-project-desc">
+                            Interactive data visualization platform with real-time KPI tracking, custom reporting, and business intelligence insights.
+                        </p>
+                        <div class="compact-project-stats">
+                            <span class="stat-badge">Tableau/Power BI</span>
+                            <span class="stat-badge">Real-time Data</span>
+                            <span class="stat-badge">Custom Reports</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telecom Modal -->
+    <div id="telecomModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close" onclick="closeModal('telecom')">&times;</span>
+                <h2>📡 Telecom Performance Monitoring System</h2>
+                <p style="color: var(--accent); margin-top: 10px;">Network Analytics & Incident Management</p>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 20px;">
+                    Comprehensive telecom data analysis system that aggregates data from multiple sources including network logs, 
+                    incident management systems, and site performance monitoring. Features proactive maintenance scheduling 
+                    and real-time performance dashboards.
+                </p>
+                
+                <div class="tech-stack" style="margin-bottom: 30px;">
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Real-time Analytics</span>
+                    <span class="tech-tag">Network Monitoring</span>
+                    <span class="tech-tag">Incident Management</span>
+                </div>
+
+                <div class="metrics-grid" style="margin-bottom: 30px;">
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">86%</div>
+                        <div class="metric-label">Network Uptime</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">-45%</div>
+                        <div class="metric-label">Incident Response Time</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">1000+</div>
+                        <div class="metric-label">Sites Monitored</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">24/7</div>
+                        <div class="metric-label">Proactive Monitoring</div>
+                    </div>
+                </div>
+
+                <div class="workflow-diagram">
+                    <h4 style="margin-bottom: 20px; color: var(--text-main);">🔄 System Workflow</h4>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Data Collection</div>
+                                <div class="step-desc">Aggregate network logs, incident reports, and site performance metrics from multiple sources</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Real-time Processing</div>
+                                <div class="step-desc">Process and normalize data streams using Python pipelines for consistent analysis</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Performance Analytics</div>
+                                <div class="step-desc">Generate insights on network performance, uptime trends, and incident patterns</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Proactive Maintenance</div>
+                                <div class="step-desc">Schedule maintenance activities based on predictive analytics and performance thresholds</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h4 style="margin-bottom: 15px; color: var(--text-main);">Network Performance Analytics</h4>
+                    <div class="demo-controls">
+                        <button class="demo-btn active" onclick="updateTelecomChart('performance')">Site Performance</button>
+                        <button class="demo-btn" onclick="updateTelecomChart('incidents')">Incident Analysis</button>
+                        <button class="demo-btn" onclick="updateTelecomChart('uptime')">Uptime Trends</button>
+                    </div>
+                    <div class="chart-container chart-animation">
+                        <canvas id="telecomChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ecommerce Modal -->
+    <div id="ecommerceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close" onclick="closeModal('ecommerce')">&times;</span>
+                <h2>🛒 Customer Intelligence Platform</h2>
+                <p style="color: var(--accent); margin-top: 10px;">RFM Analysis & Customer Segmentation</p>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 20px;">
+                    Advanced customer analytics platform integrating Shopify data with multiple retail vendors. 
+                    Features sophisticated RFM segmentation, customer lifetime value prediction, and 
+                    Google Analytics integration. Daily data synchronization to Huawei Cloud MySQL ensures real-time insights.
+                </p>
+                
+                <div class="tech-stack" style="margin-bottom: 30px;">
+                    <span class="tech-tag">Shopify API</span>
+                    <span class="tech-tag">RFM Analysis</span>
+                    <span class="tech-tag">Huawei Cloud</span>
+                    <span class="tech-tag">MySQL Sync</span>
+                    <span class="tech-tag">Google Analytics</span>
+                </div>
+
+                <div class="metrics-grid" style="margin-bottom: 30px;">
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">5 Segments</div>
+                        <div class="metric-label">Customer Tiers</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">+32%</div>
+                        <div class="metric-label">Retention Rate</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">85%</div>
+                        <div class="metric-label">Churn Prediction Accuracy</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">Daily</div>
+                        <div class="metric-label">Cloud Sync</div>
+                    </div>
+                </div>
+
+                <div class="workflow-diagram">
+                    <h4 style="margin-bottom: 20px; color: var(--text-main);">🔄 Data Pipeline Workflow</h4>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Multi-source Data Collection</div>
+                                <div class="step-desc">Extract data from Shopify API, retail vendors, and Google Analytics</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Data Normalization</div>
+                                <div class="step-desc">Transform and standardize data into consistent format for analysis</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Huawei Cloud Sync</div>
+                                <div class="step-desc">Daily synchronization to MySQL database on Huawei Cloud for centralized storage</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">4</div>
+                            <div class="step-content">
+                                <div class="step-title">RFM Analysis</div>
+                                <div class="step-desc">Apply Recency, Frequency, Monetary analysis for customer segmentation</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">5</div>
+                            <div class="step-content">
+                                <div class="step-title">Customer Intelligence</div>
+                                <div class="step-desc">Generate 360° customer view with churn prediction and LTV modeling</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-architecture-diagram">
+                    <h4 style="margin-bottom: 20px; color: var(--text-main);">🗄️ Data Architecture & Table Relationships</h4>
+                    <div class="architecture-container">
+                        <div class="table-relationships">
+                            <!-- Customers Table -->
+                            <div class="db-table customers-table">
+                                <div class="table-header">customers</div>
+                                <div class="table-fields">
+                                    <div class="field primary-key">customer_id (PK)</div>
+                                    <div class="field">email</div>
+                                    <div class="field">first_name</div>
+                                    <div class="field">last_name</div>
+                                    <div class="field">phone</div>
+                                    <div class="field">created_at</div>
+                                    <div class="field">updated_at</div>
+                                </div>
+                            </div>
+
+                            <!-- Orders Table -->
+                            <div class="db-table orders-table">
+                                <div class="table-header">orders</div>
+                                <div class="table-fields">
+                                    <div class="field primary-key">order_id (PK)</div>
+                                    <div class="field foreign-key">customer_id (FK)</div>
+                                    <div class="field">order_date</div>
+                                    <div class="field">total_amount</div>
+                                    <div class="field">status</div>
+                                    <div class="field">payment_method</div>
+                                    <div class="field">shipping_address</div>
+                                </div>
+                            </div>
+
+                            <!-- Products Table -->
+                            <div class="db-table products-table">
+                                <div class="table-header">products</div>
+                                <div class="table-fields">
+                                    <div class="field primary-key">product_id (PK)</div>
+                                    <div class="field">product_name</div>
+                                    <div class="field">category</div>
+                                    <div class="field">price</div>
+                                    <div class="field">stock_quantity</div>
+                                    <div class="field">vendor_id</div>
+                                </div>
+                            </div>
+
+                            <!-- Order_Items Table -->
+                            <div class="db-table order-items-table">
+                                <div class="table-header">order_items</div>
+                                <div class="table-fields">
+                                    <div class="field primary-key">item_id (PK)</div>
+                                    <div class="field foreign-key">order_id (FK)</div>
+                                    <div class="field foreign-key">product_id (FK)</div>
+                                    <div class="field">quantity</div>
+                                    <div class="field">unit_price</div>
+                                    <div class="field">discount_amount</div>
+                                </div>
+                            </div>
+
+                            <!-- Customer_Segments Table -->
+                            <div class="db-table segments-table">
+                                <div class="table-header">customer_segments</div>
+                                <div class="table-fields">
+                                    <div class="field primary-key">segment_id (PK)</div>
+                                    <div class="field foreign-key">customer_id (FK)</div>
+                                    <div class="field">segment_type</div>
+                                    <div class="field">rfm_score</div>
+                                    <div class="field">ltv_score</div>
+                                    <div class="field">churn_probability</div>
+                                    <div class="field">last_updated</div>
+                                </div>
+                            </div>
+
+                            <!-- Analytics Tables -->
+                            <div class="db-table analytics-table">
+                                <div class="table-header">analytics_summary</div>
+                                <div class="table-fields">
+                                    <div class="field primary-key">summary_id (PK)</div>
+                                    <div class="field">date_period</div>
+                                    <div class="field">total_revenue</div>
+                                    <div class="field">total_orders</div>
+                                    <div class="field">active_customers</div>
+                                    <div class="field">avg_order_value</div>
+                                    <div class="field">retention_rate</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Relationship Lines -->
+                        <svg class="relationship-lines" viewBox="0 0 800 600">
+                            <!-- Customers to Orders -->
+                            <line class="relationship-line" x1="150" y1="100" x2="150" y2="200" stroke="#f4b400" stroke-width="2"/>
+                            <text x="160" y="150" fill="#f4b400" font-size="12">1:N</text>
+                            
+                            <!-- Orders to Order_Items -->
+                            <line class="relationship-line" x1="300" y1="250" x2="450" y2="250" stroke="#f4b400" stroke-width="2"/>
+                            <text x="370" y="240" fill="#f4b400" font-size="12">1:N</text>
+                            
+                            <!-- Products to Order_Items -->
+                            <line class="relationship-line" x1="450" y1="100" x2="450" y2="200" stroke="#f4b400" stroke-width="2"/>
+                            <text x="460" y="150" fill="#f4b400" font-size="12">1:N</text>
+                            
+                            <!-- Customers to Segments -->
+                            <line class="relationship-line" x1="150" y1="100" x2="600" y2="100" stroke="#4ade80" stroke-width="2"/>
+                            <text x="370" y="90" fill="#4ade80" font-size="12">1:1</text>
+                            
+                            <!-- Orders to Analytics -->
+                            <line class="relationship-line" x1="300" y1="300" x2="300" y2="400" stroke="#60a5fa" stroke-width="2" stroke-dasharray="5,5"/>
+                            <text x="310" y="350" fill="#60a5fa" font-size="12">Aggregated</text>
+                        </svg>
+
+                        <!-- Data Flow Annotations -->
+                        <div class="data-flow-annotations">
+                            <div class="annotation source-systems">
+                                <h5>📥 Data Sources</h5>
+                                <ul>
+                                    <li>Shopify API → customers, orders, products</li>
+                                    <li>Vendor Systems → product inventory</li>
+                                    <li>Google Analytics → traffic data</li>
+                                </ul>
+                            </div>
+                            <div class="annotation sync-process">
+                                <h5>🔄 Daily Sync Process</h5>
+                                <ul>
+                                    <li>ETL pipelines run at 2:00 AM UTC</li>
+                                    <li>Incremental updates only</li>
+                                    <li>Data validation & cleansing</li>
+                                    <li>Backup to Huawei Cloud Storage</li>
+                                </ul>
+                            </div>
+                            <div class="annotation analytics-output">
+                                <h5>📊 Analytics Output</h5>
+                                <ul>
+                                    <li>RFM segmentation scores</li>
+                                    <li>Customer lifetime value</li>
+                                    <li>Churn prediction models</li>
+                                    <li>Executive dashboards</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h4 style="margin-bottom: 15px; color: var(--text-main);">Customer Analytics Dashboard</h4>
+                    <div class="demo-controls">
+                        <button class="demo-btn active" onclick="updateEcommerceChart('rfm')">RFM Segmentation</button>
+                        <button class="demo-btn" onclick="updateEcommerceChart('retention')">Cohort Retention</button>
+                        <button class="demo-btn" onclick="updateEcommerceChart('ltv')">Customer Lifetime Value</button>
+                    </div>
+                    <div class="chart-container chart-animation">
+                        <canvas id="ecommerceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Web Development Modal -->
+    <div id="webdevModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close" onclick="closeModal('webdev')">&times;</span>
+                <h2>🌐 Personal Portfolio Suite</h2>
+                <p style="color: var(--accent); margin-top: 10px;">Modern Web Development & UI/UX Design</p>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 20px;">
+                    Responsive web development project showcasing modern frontend development skills with clean design principles, 
+                    interactive components, and optimized performance. Built with attention to user experience and accessibility standards.
+                </p>
+                
+                <div class="tech-stack" style="margin-bottom: 30px;">
+                    <span class="tech-tag">HTML5/CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">React/Vue.js</span>
+                    <span class="tech-tag">Responsive Design</span>
+                    <span class="tech-tag">UI/UX Principles</span>
+                </div>
+
+                <div class="metrics-grid" style="margin-bottom: 30px;">
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Responsive Design</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">A+</div>
+                        <div class="metric-label">Performance Score</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">5+</div>
+                        <div class="metric-label">Interactive Components</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">WCAG</div>
+                        <div class="metric-label">Accessibility Compliant</div>
+                    </div>
+                </div>
+
+                <div class="workflow-diagram">
+                    <h4 style="margin-bottom: 20px; color: var(--text-main);">🔄 Development Workflow</h4>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Design & Planning</div>
+                                <div class="step-desc">Create wireframes, user flows, and design system with modern UI/UX principles</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Frontend Development</div>
+                                <div class="step-desc">Implement responsive layouts with semantic HTML5, CSS3, and modern JavaScript</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Interactive Features</div>
+                                <div class="step-desc">Add dynamic components, animations, and user interaction enhancements</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Optimization & Deployment</div>
+                                <div class="step-desc">Performance optimization, SEO best practices, and production deployment</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h4 style="margin-bottom: 15px; color: var(--text-main);">Technical Showcase</h4>
+                    <div class="demo-controls">
+                        <button class="demo-btn active" onclick="updateWebDevChart('performance')">Performance Metrics</button>
+                        <button class="demo-btn" onclick="updateWebDevChart('features')">Feature Breakdown</button>
+                        <button class="demo-btn" onclick="updateWebDevChart('timeline')">Development Timeline</button>
+                    </div>
+                    <div class="chart-container chart-animation">
+                        <canvas id="webdevChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Automation Modal -->
+    <div id="automationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close" onclick="closeModal('automation')">&times;</span>
+                <h2>🤖 Business Process Automation</h2>
+                <p style="color: var(--accent); margin-top: 10px;">Python Automation & Workflow Optimization</p>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 20px;">
+                    Python-based automation system designed to streamline business processes, reduce manual work, and improve efficiency. 
+                    Features data processing automation, report generation, and API integrations that save significant time and resources.
+                </p>
+                
+                <div class="tech-stack" style="margin-bottom: 30px;">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Selenium</span>
+                    <span class="tech-tag">API Integration</span>
+                    <span class="tech-tag">Data Processing</span>
+                    <span class="tech-tag">Task Scheduling</span>
+                </div>
+
+                <div class="metrics-grid" style="margin-bottom: 30px;">
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">90%</div>
+                        <div class="metric-label">Time Saved</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">50+</div>
+                        <div class="metric-label">Automated Tasks</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">24/7</div>
+                        <div class="metric-label">Background Processing</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Accuracy Rate</div>
+                    </div>
+                </div>
+
+                <div class="workflow-diagram">
+                    <h4 style="margin-bottom: 20px; color: var(--text-main);">🔄 Automation Pipeline</h4>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Process Analysis</div>
+                                <div class="step-desc">Identify manual tasks and repetitive processes suitable for automation</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Script Development</div>
+                                <div class="step-desc">Create Python scripts with error handling and logging capabilities</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">3</div>
+                            <div class="step-content">
+                                <div class="step-title">API Integration</div>
+                                <div class="step-desc">Connect with external systems and databases for seamless data flow</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Scheduled Execution</div>
+                                <div class="step-desc">Implement task scheduling and monitoring for automated execution</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">5</div>
+                            <div class="step-content">
+                                <div class="step-title">Reporting & Alerts</div>
+                                <div class="step-desc">Generate automated reports and set up error notification systems</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h4 style="margin-bottom: 15px; color: var(--text-main);">Automation Analytics</h4>
+                    <div class="demo-controls">
+                        <button class="demo-btn active" onclick="updateAutomationChart('efficiency')">Efficiency Gains</button>
+                        <button class="demo-btn" onclick="updateAutomationChart('tasks')">Task Distribution</button>
+                        <button class="demo-btn" onclick="updateAutomationChart('savings')">Time Savings</button>
+                    </div>
+                    <div class="chart-container chart-animation">
+                        <canvas id="automationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Visualization Modal -->
+    <div id="datavizModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close" onclick="closeModal('dataviz')">&times;</span>
+                <h2>📊 Executive Analytics Dashboard</h2>
+                <p style="color: var(--accent); margin-top: 10px;">Business Intelligence & Data Visualization</p>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 20px;">
+                    Interactive data visualization platform designed for executive decision-making with real-time KPI tracking, 
+                    custom reporting capabilities, and comprehensive business intelligence insights from multiple data sources.
+                </p>
+                
+                <div class="tech-stack" style="margin-bottom: 30px;">
+                    <span class="tech-tag">Tableau</span>
+                    <span class="tech-tag">Power BI</span>
+                    <span class="tech-tag">D3.js</span>
+                    <span class="tech-tag">SQL Analytics</span>
+                    <span class="tech-tag">Real-time Processing</span>
+                </div>
+
+                <div class="metrics-grid" style="margin-bottom: 30px;">
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">25+</div>
+                        <div class="metric-label">KPI Dashboards</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">Real-time</div>
+                        <div class="metric-label">Data Updates</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">10+</div>
+                        <div class="metric-label">Data Sources</div>
+                    </div>
+                    <div class="metric-card pulse-animation">
+                        <div class="metric-value">C-level</div>
+                        <div class="metric-label">Executive Ready</div>
+                    </div>
+                </div>
+
+                <div class="workflow-diagram">
+                    <h4 style="margin-bottom: 20px; color: var(--text-main);">🔄 BI Development Process</h4>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Requirements Gathering</div>
+                                <div class="step-desc">Collaborate with stakeholders to define KPIs and visualization requirements</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Data Integration</div>
+                                <div class="step-desc">Connect to multiple data sources and ensure data quality and consistency</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Dashboard Design</div>
+                                <div class="step-desc">Create intuitive visualizations with interactive elements and drill-down capabilities</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Performance Optimization</div>
+                                <div class="step-desc">Optimize query performance and implement caching for fast dashboard loading</div>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">5</div>
+                            <div class="step-content">
+                                <div class="step-title">User Training & Deployment</div>
+                                <div class="step-desc">Conduct training sessions and deploy dashboards with access control management</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h4 style="margin-bottom: 15px; color: var(--text-main);">Dashboard Analytics</h4>
+                    <div class="demo-controls">
+                        <button class="demo-btn active" onclick="updateDataVizChart('kpis')">KPI Performance</button>
+                        <button class="demo-btn" onclick="updateDataVizChart('usage')">Dashboard Usage</button>
+                        <button class="demo-btn" onclick="updateDataVizChart('insights')">Business Insights</button>
+                    </div>
+                    <div class="chart-container chart-animation">
+                        <canvas id="datavizChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-cta">
+                    <h2>Let's Talk?</h2>
+                    <p>Available for freelance projects and full-time opportunities.</p>
+                </div>
+                <div class="qr-codes">
+                    <div class="viber-qr">
+                        <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 1.2rem;">Scan to Connect on Viber</h3>
+                        <img src="image.png" alt="Viber QR Code" style="width: 140px; height: 140px; border-radius: 10px; border: 2px solid var(--accent); background: white; padding: 5px; cursor: pointer;" onclick="window.open('https://connect.viber.com/business/e826638a-21c1-11f1-ae58-8a82b413c302', '_blank')">
+                        <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">Scan QR code or <a href="https://connect.viber.com/business/e826638a-21c1-11f1-ae58-8a82b413c302" target="_blank" style="color: var(--accent);">click here</a> to connect</p>
+                    </div>
+                    <div class="telegram-qr">
+                        <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 1.2rem;">Scan to Connect on Telegram</h3>
+                        <img src="image_tg.png" alt="Telegram QR Code" style="width: 140px; height: 140px; border-radius: 10px; border: 2px solid var(--accent); background: white; padding: 5px; cursor: pointer;" onclick="window.open('https://t.me/ko_kaung_myat', '_blank')">
+                        <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">Scan QR code or <a href="https://t.me/ko_kaung_myat" target="_blank" style="color: var(--accent);">click here</a> to connect</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/kaung-myat-kyaw-96705231a" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/kaungmyat-tech" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61580760396407" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://connect.viber.com/business/e826638a-21c1-11f1-ae58-8a82b413c302" target="_blank" class="social-btn"><i class="fab fa-viber"></i></a>
+                    <a href="https://t.me/ko_kaung_myat" target="_blank" class="social-btn"><i class="fab fa-telegram"></i></a>
+                    <a href="mailto:kaungmyatkyaw.mmkse@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+959783924046" class="social-btn"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; <span id="year"></span> Kaung Myat Kyaw. All rights reserved.
+                </div>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Yangon, Myanmar</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>kaungmyatkyaw.mmkse@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navigation Dropdown Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            navItems.forEach(item => {
+                const link = item.querySelector('.nav-link');
+                const dropdown = item.querySelector('.nav-dropdown');
+                
+                // Show dropdown on hover
+                item.addEventListener('mouseenter', () => {
+                    // Hide all other dropdowns
+                    document.querySelectorAll('.nav-dropdown').forEach(d => {
+                        if (d !== dropdown) {
+                            d.style.opacity = '0';
+                            d.style.visibility = 'hidden';
+                        }
+                    });
+                    // Show current dropdown
+                    dropdown.style.opacity = '1';
+                    dropdown.style.visibility = 'visible';
+                });
+                
+                // Hide dropdown on mouse leave
+                item.addEventListener('mouseleave', () => {
+                    setTimeout(() => {
+                        dropdown.style.opacity = '0';
+                        dropdown.style.visibility = 'hidden';
+                    }, 100);
+                });
+                
+                // Handle click on main link
+                link.addEventListener('click', (e) => {
+                    // Close dropdown after navigation
+                    setTimeout(() => {
+                        dropdown.style.opacity = '0';
+                        dropdown.style.visibility = 'hidden';
+                    }, 300);
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-item')) {
+                    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                        dropdown.style.opacity = '0';
+                        dropdown.style.visibility = 'hidden';
+                    });
+                }
+            });
+        });
+
+        // Modal Functions
+        function openModal(projectType) {
+            const modal = document.getElementById(projectType + 'Modal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Initialize charts when modal opens
+            setTimeout(() => {
+                if (projectType === 'telecom') {
+                    initTelecomChart();
+                } else if (projectType === 'ecommerce') {
+                    initEcommerceChart();
+                } else if (projectType === 'webdev') {
+                    initWebDevChart();
+                } else if (projectType === 'automation') {
+                    initAutomationChart();
+                } else if (projectType === 'dataviz') {
+                    initDataVizChart();
+                }
+            }, 100);
+        }
+
+        function closeModal(projectType) {
+            const modal = document.getElementById(projectType + 'Modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Simple Fade In Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .project-card, .about-text, .about-visual, .compact-project-card, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Animate skill bars and stars when skills section is visible
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate progress bars
+                    const progressBars = entry.target.querySelectorAll('.skill-progress-bar');
+                    progressBars.forEach((bar, index) => {
+                        setTimeout(() => {
+                            bar.style.animation = 'progressGrow 1s ease-in-out forwards';
+                        }, index * 100);
+                    });
+                    
+                    // Animate stars with staggered delay
+                    const stars = entry.target.querySelectorAll('.star');
+                    stars.forEach((star, index) => {
+                        if (star.classList.contains('filled')) {
+                            setTimeout(() => {
+                                star.style.animation = 'starPulse 0.5s ease-in-out';
+                            }, index * 50);
+                        }
+                    });
+                    
+                    skillsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.skills-categories').forEach(el => {
+            skillsObserver.observe(el);
+        });
+
+        // Add interactive star rating functionality
+        document.querySelectorAll('.star-rating').forEach(rating => {
+            const stars = rating.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    // Remove all filled classes
+                    stars.forEach(s => s.classList.remove('filled', 'half'));
+                    // Add filled classes up to clicked star
+                    for (let i = 0; i <= index; i++) {
+                        stars[i].classList.add('filled');
+                    }
+                    // Trigger pulse animation
+                    stars[index].style.animation = 'none';
+                    setTimeout(() => {
+                        stars[index].style.animation = 'starPulse 0.5s ease-in-out';
+                    }, 10);
+                });
+                
+                star.addEventListener('mouseenter', () => {
+                    // Preview rating on hover
+                    stars.forEach((s, i) => {
+                        if (i <= index) {
+                            s.style.color = 'var(--accent)';
+                            s.style.transform = 'scale(1.2)';
+                        } else {
+                            s.style.color = 'var(--border)';
+                            s.style.transform = 'scale(1)';
+                        }
+                    });
+                });
+            });
+            
+            rating.addEventListener('mouseleave', () => {
+                // Reset to original state
+                stars.forEach(star => {
+                    star.style.transform = 'scale(1)';
+                    if (!star.classList.contains('filled')) {
+                        star.style.color = 'var(--border)';
+                    } else {
+                        star.style.color = 'var(--accent)';
+                    }
+                });
+            });
+        });
+
+        // Chart.js Configuration
+        Chart.defaults.color = '#a0a0a0';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+        Chart.defaults.font.family = 'Inter';
+
+        let telecomChart, ecommerceChart, webdevChart, automationChart, datavizChart;
+
+        // Initialize Telecom Chart
+        function initTelecomChart() {
+            const telecomCtx = document.getElementById('telecomChart');
+            if (!telecomCtx) return;
+            
+            const ctx = telecomCtx.getContext('2d');
+            
+            if (telecomChart) {
+                telecomChart.destroy();
+            }
+            
+            telecomChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Site A', 'Site B', 'Site C', 'Site D', 'Site E'],
+                    datasets: [{
+                        label: 'Uptime %',
+                        data: [86, 88, 85, 87, 86],
+                        borderColor: '#f4b400',
+                        backgroundColor: 'rgba(244, 180, 0, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 80,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize Ecommerce Chart
+        function initEcommerceChart() {
+            const ecommerceCtx = document.getElementById('ecommerceChart');
+            if (!ecommerceCtx) return;
+            
+            const ctx = ecommerceCtx.getContext('2d');
+            
+            if (ecommerceChart) {
+                ecommerceChart.destroy();
+            }
+            
+            ecommerceChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['VIP', 'Loyal', 'Big Spenders', 'At Risk', 'Lost'],
+                    datasets: [{
+                        data: [15, 25, 20, 25, 15],
+                        backgroundColor: [
+                            '#f4b400',
+                            '#4ade80',
+                            '#60a5fa',
+                            '#f87171',
+                            '#94a3b8'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update Telecom Chart Function
+        function updateTelecomChart(type) {
+            // Update button states
+            const modalButtons = event.target.closest('.demo-controls').querySelectorAll('.demo-btn');
+            modalButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            let newData, chartType;
+
+            switch(type) {
+                case 'performance':
+                    newData = {
+                        labels: ['Site A', 'Site B', 'Site C', 'Site D', 'Site E'],
+                        datasets: [{
+                            label: 'Uptime %',
+                            data: [86, 88, 85, 87, 86],
+                            borderColor: '#f4b400',
+                            backgroundColor: 'rgba(244, 180, 0, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    };
+                    chartType = 'line';
+                    break;
+                case 'incidents':
+                    newData = {
+                        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                        datasets: [{
+                            label: 'Critical Incidents',
+                            data: [12, 8, 5, 3],
+                            backgroundColor: '#f87171'
+                        }, {
+                            label: 'Minor Incidents',
+                            data: [45, 38, 32, 28],
+                            backgroundColor: '#60a5fa'
+                        }]
+                    };
+                    chartType = 'bar';
+                    break;
+                case 'uptime':
+                    newData = {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                        datasets: [{
+                            label: 'Average Uptime %',
+                            data: [84, 85, 86, 86, 87, 86],
+                            borderColor: '#4ade80',
+                            backgroundColor: 'rgba(74, 222, 128, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    };
+                    chartType = 'line';
+                    break;
+            }
+
+            const telecomCtx = document.getElementById('telecomChart').getContext('2d');
+            telecomChart.destroy();
+            telecomChart = new Chart(telecomCtx, {
+                type: chartType,
+                data: newData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: chartType === 'bar',
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update Ecommerce Chart Function
+        function updateEcommerceChart(type) {
+            // Update button states
+            const modalButtons = event.target.closest('.demo-controls').querySelectorAll('.demo-btn');
+            modalButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            let newData, chartType;
+
+            switch(type) {
+                case 'rfm':
+                    newData = {
+                        labels: ['VIP', 'Loyal', 'Big Spenders', 'At Risk', 'Lost'],
+                        datasets: [{
+                            data: [15, 25, 20, 25, 15],
+                            backgroundColor: [
+                                '#f4b400',
+                                '#4ade80',
+                                '#60a5fa',
+                                '#f87171',
+                                '#94a3b8'
+                            ],
+                            borderWidth: 0
+                        }]
+                    };
+                    chartType = 'doughnut';
+                    break;
+                case 'retention':
+                    newData = {
+                        labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+                        datasets: [{
+                            label: 'Cohort 1',
+                            data: [100, 85, 72, 68, 65, 62],
+                            borderColor: '#f4b400',
+                            backgroundColor: 'rgba(244, 180, 0, 0.1)',
+                            tension: 0.4
+                        }, {
+                            label: 'Cohort 2',
+                            data: [100, 88, 75, 70, 67, 64],
+                            borderColor: '#4ade80',
+                            backgroundColor: 'rgba(74, 222, 128, 0.1)',
+                            tension: 0.4
+                        }]
+                    };
+                    chartType = 'line';
+                    break;
+                case 'ltv':
+                    newData = {
+                        labels: ['0-3 months', '3-6 months', '6-12 months', '1-2 years', '2+ years'],
+                        datasets: [{
+                            label: 'Average LTV (MMK)',
+                            data: [50000, 150000, 450000, 850000, 1200000],
+                            backgroundColor: '#60a5fa'
+                        }]
+                    };
+                    chartType = 'bar';
+                    break;
+            }
+
+            const ecommerceCtx = document.getElementById('ecommerceChart').getContext('2d');
+            ecommerceChart.destroy();
+            ecommerceChart = new Chart(ecommerceCtx, {
+                type: chartType,
+                data: newData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: chartType === 'doughnut' ? 'right' : 'top'
+                        }
+                    },
+                    scales: chartType !== 'doughnut' ? {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    } : {}
+                }
+            });
+        }
+
+        // Initialize Web Development Chart
+        function initWebDevChart() {
+            const webdevCtx = document.getElementById('webdevChart');
+            if (!webdevCtx) return;
+            
+            const ctx = webdevCtx.getContext('2d');
+            
+            if (webdevChart) {
+                webdevChart.destroy();
+            }
+            
+            webdevChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Performance', 'Accessibility', 'Best Practices', 'SEO', 'Responsive Design'],
+                    datasets: [{
+                        label: 'Project Score',
+                        data: [95, 100, 90, 85, 100],
+                        borderColor: '#f4b400',
+                        backgroundColor: 'rgba(244, 180, 0, 0.2)',
+                        pointBackgroundColor: '#f4b400',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#f4b400'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize Automation Chart
+        function initAutomationChart() {
+            const automationCtx = document.getElementById('automationChart');
+            if (!automationCtx) return;
+            
+            const ctx = automationCtx.getContext('2d');
+            
+            if (automationChart) {
+                automationChart.destroy();
+            }
+            
+            automationChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Data Processing', 'Report Generation', 'Email Automation', 'API Calls', 'File Management'],
+                    datasets: [{
+                        label: 'Hours Saved per Week',
+                        data: [12, 8, 6, 4, 3],
+                        backgroundColor: '#4ade80'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize Data Visualization Chart
+        function initDataVizChart() {
+            const datavizCtx = document.getElementById('datavizChart');
+            if (!datavizCtx) return;
+            
+            const ctx = datavizCtx.getContext('2d');
+            
+            if (datavizChart) {
+                datavizChart.destroy();
+            }
+            
+            datavizChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Sales', 'Marketing', 'Operations', 'Finance', 'HR'],
+                    datasets: [{
+                        label: 'KPI Performance (%)',
+                        data: [92, 88, 95, 85, 90],
+                        borderColor: '#60a5fa',
+                        backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 70,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update Web Development Chart Function
+        function updateWebDevChart(type) {
+            const modalButtons = event.target.closest('.demo-controls').querySelectorAll('.demo-btn');
+            modalButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            let newData, chartType;
+
+            switch(type) {
+                case 'performance':
+                    newData = {
+                        labels: ['Performance', 'Accessibility', 'Best Practices', 'SEO', 'Responsive Design'],
+                        datasets: [{
+                            label: 'Project Score',
+                            data: [95, 100, 90, 85, 100],
+                            borderColor: '#f4b400',
+                            backgroundColor: 'rgba(244, 180, 0, 0.2)',
+                            pointBackgroundColor: '#f4b400',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: '#f4b400'
+                        }]
+                    };
+                    chartType = 'radar';
+                    break;
+                case 'features':
+                    newData = {
+                        labels: ['Interactive Components', 'Forms', 'Navigation', 'Media Gallery', 'Contact System'],
+                        datasets: [{
+                            label: 'Features Implemented',
+                            data: [8, 5, 3, 6, 4],
+                            backgroundColor: '#f4b400'
+                        }]
+                    };
+                    chartType = 'bar';
+                    break;
+                case 'timeline':
+                    newData = {
+                        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                        datasets: [{
+                            label: 'Development Progress (%)',
+                            data: [15, 35, 55, 75, 90, 100],
+                            borderColor: '#f4b400',
+                            backgroundColor: 'rgba(244, 180, 0, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    };
+                    chartType = 'line';
+                    break;
+            }
+
+            const webdevCtx = document.getElementById('webdevChart').getContext('2d');
+            webdevChart.destroy();
+            webdevChart = new Chart(webdevCtx, {
+                type: chartType,
+                data: newData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: chartType !== 'radar' ? {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    } : {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update Automation Chart Function
+        function updateAutomationChart(type) {
+            const modalButtons = event.target.closest('.demo-controls').querySelectorAll('.demo-btn');
+            modalButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            let newData, chartType;
+
+            switch(type) {
+                case 'efficiency':
+                    newData = {
+                        labels: ['Before Automation', 'After Automation'],
+                        datasets: [{
+                            label: 'Manual Hours per Week',
+                            data: [40, 4],
+                            backgroundColor: '#f87171'
+                        }, {
+                            label: 'Automated Hours per Week',
+                            data: [0, 36],
+                            backgroundColor: '#4ade80'
+                        }]
+                    };
+                    chartType = 'bar';
+                    break;
+                case 'tasks':
+                    newData = {
+                        labels: ['Data Processing', 'Report Generation', 'Email Automation', 'API Calls', 'File Management'],
+                        datasets: [{
+                            label: 'Hours Saved per Week',
+                            data: [12, 8, 6, 4, 3],
+                            backgroundColor: '#4ade80'
+                        }]
+                    };
+                    chartType = 'bar';
+                    break;
+                case 'savings':
+                    newData = {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                        datasets: [{
+                            label: 'Cumulative Hours Saved',
+                            data: [40, 80, 120, 160, 200, 240],
+                            borderColor: '#4ade80',
+                            backgroundColor: 'rgba(74, 222, 128, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    };
+                    chartType = 'line';
+                    break;
+            }
+
+            const automationCtx = document.getElementById('automationChart').getContext('2d');
+            automationChart.destroy();
+            automationChart = new Chart(automationCtx, {
+                type: chartType,
+                data: newData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update Data Visualization Chart Function
+        function updateDataVizChart(type) {
+            const modalButtons = event.target.closest('.demo-controls').querySelectorAll('.demo-btn');
+            modalButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            let newData, chartType;
+
+            switch(type) {
+                case 'kpis':
+                    newData = {
+                        labels: ['Sales', 'Marketing', 'Operations', 'Finance', 'HR'],
+                        datasets: [{
+                            label: 'KPI Performance (%)',
+                            data: [92, 88, 95, 85, 90],
+                            borderColor: '#60a5fa',
+                            backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    };
+                    chartType = 'line';
+                    break;
+                case 'usage':
+                    newData = {
+                        labels: ['Executive Dashboard', 'Sales Analytics', 'Marketing Reports', 'Operations KPIs', 'Financial Summary'],
+                        datasets: [{
+                            label: 'Daily Active Users',
+                            data: [45, 32, 28, 25, 38],
+                            backgroundColor: '#60a5fa'
+                        }]
+                    };
+                    chartType = 'bar';
+                    break;
+                case 'insights':
+                    newData = {
+                        labels: ['Revenue Growth', 'Cost Reduction', 'Customer Satisfaction', 'Operational Efficiency', 'Market Expansion'],
+                        datasets: [{
+                            data: [25, 20, 15, 25, 15],
+                            backgroundColor: [
+                                '#60a5fa',
+                                '#4ade80',
+                                '#f4b400',
+                                '#f87171',
+                                '#94a3b8'
+                            ],
+                            borderWidth: 0
+                        }]
+                    };
+                    chartType = 'doughnut';
+                    break;
+            }
+
+            const datavizCtx = document.getElementById('datavizChart').getContext('2d');
+            datavizChart.destroy();
+            datavizChart = new Chart(datavizCtx, {
+                type: chartType,
+                data: newData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: chartType === 'doughnut' ? 'right' : 'top'
+                        }
+                    },
+                    scales: chartType !== 'doughnut' ? {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            }
+                        }
+                    } : {}
+                }
+            });
+        }
+    </script>
+</body>
+</html>

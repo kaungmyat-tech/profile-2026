@@ -1,0 +1,20 @@
+# Ignore parent directories and their contents
+../
+../../
+
+# Ignore common development files
+.env
+node_modules/
+*.log
+*.csv
+*.xlsx
+requirements.txt
+package-lock.json
+package.json
+
+# Ignore git submodules from parent repository
+../../KZ-strategic/
+../../clone_app/
+../../kz_multi_vendor_project/
+../../meetings/
+../../shopify_order_sync/
