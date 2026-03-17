@@ -35,10 +35,426 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
+            background: linear-gradient(135deg, #1a1f36 0%, #262d42 50%, #131722 100%);
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated Background Elements */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1f36 0%, #262d42 50%, #131722 100%);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background: linear-gradient(135deg, #1a1f36 0%, #262d42 50%, #131722 100%); }
+            25% { background: linear-gradient(135deg, #1e2438 0%, #2a3147 50%, #151822 100%); }
+            50% { background: linear-gradient(135deg, #1a1f36 0%, #242b40 50%, #131722 100%); }
+            75% { background: linear-gradient(135deg, #1d2238 0%, #272e44 50%, #141922 100%); }
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite;
+        }
+
+        .particle-1 {
+            width: 4px;
+            height: 4px;
+            top: 20%;
+            left: 10%;
+            animation-duration: 25s;
+            animation-delay: 0s;
+        }
+
+        .particle-2 {
+            width: 6px;
+            height: 6px;
+            top: 60%;
+            left: 80%;
+            animation-duration: 30s;
+            animation-delay: 2s;
+        }
+
+        .particle-3 {
+            width: 3px;
+            height: 3px;
+            top: 40%;
+            left: 20%;
+            animation-duration: 20s;
+            animation-delay: 4s;
+        }
+
+        .particle-4 {
+            width: 5px;
+            height: 5px;
+            top: 80%;
+            left: 60%;
+            animation-duration: 35s;
+            animation-delay: 1s;
+        }
+
+        .particle-5 {
+            width: 4px;
+            height: 4px;
+            top: 10%;
+            left: 90%;
+            animation-duration: 28s;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+                opacity: 0.1;
+            }
+            25% {
+                transform: translateY(-100px) translateX(50px) rotate(90deg);
+                opacity: 0.2;
+            }
+            50% {
+                transform: translateY(-200px) translateX(-30px) rotate(180deg);
+                opacity: 0.15;
+            }
+            75% {
+                transform: translateY(-100px) translateX(-50px) rotate(270deg);
+                opacity: 0.1;
+            }
+        }
+
+        /* Animated Grid Lines */
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(244, 180, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(244, 180, 0, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Glowing Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            animation: orbFloat 15s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            top: -150px;
+            right: -150px;
+            animation-duration: 20s;
+        }
+
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            background: #f4b400;
+            bottom: -100px;
+            left: -100px;
+            animation-duration: 25s;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 250px;
+            height: 250px;
+            background: rgba(244, 180, 0, 0.5);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 30s;
+            animation-delay: 10s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.15;
+            }
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+                opacity: 0.2;
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+                opacity: 0.1;
+            }
+        }
+
+        /* Section Background Enhancements */
+        .section-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(244, 180, 0, 0.02), transparent);
+            animation: shimmer 8s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Additional Animated Elements */
+        .geometric-shape {
+            position: absolute;
+            opacity: 0.05;
+            animation: geometricFloat 25s infinite ease-in-out;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 52px solid var(--accent);
+            top: 10%;
+            right: 15%;
+            animation-duration: 30s;
+        }
+
+        .square {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            transform: rotate(45deg);
+            bottom: 20%;
+            left: 10%;
+            animation-duration: 35s;
+            animation-delay: 5s;
+        }
+
+        .hexagon {
+            width: 60px;
+            height: 33px;
+            background: var(--accent);
+            position: relative;
+            top: 60%;
+            right: 25%;
+            animation-duration: 28s;
+            animation-delay: 10s;
+        }
+
+        .hexagon:before,
+        .hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+        }
+
+        .hexagon:before {
+            bottom: 100%;
+            border-bottom: 17px solid var(--accent);
+        }
+
+        .hexagon:after {
+            top: 100%;
+            border-top: 17px solid var(--accent);
+        }
+
+        @keyframes geometricFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0.05;
+            }
+            25% {
+                transform: translateY(-50px) rotate(90deg) scale(1.2);
+                opacity: 0.08;
+            }
+            50% {
+                transform: translateY(-100px) rotate(180deg) scale(0.8);
+                opacity: 0.06;
+            }
+            75% {
+                transform: translateY(-50px) rotate(270deg) scale(1.1);
+                opacity: 0.07;
+            }
+        }
+
+        /* Wave Animation */
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(244, 180, 0, 0.1) 0%, rgba(244, 180, 0, 0.05) 100%);
+            border-radius: 50%;
+            animation: wave 20s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: -5s;
+            opacity: 0.5;
+            height: 80%;
+        }
+
+        .wave:nth-child(3) {
+            animation-delay: -10s;
+            opacity: 0.3;
+            height: 60%;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(-25%) translateY(-20px); }
+            100% { transform: translateX(-50%) translateY(0); }
+        }
+
+        /* Starfield Animation */
+        .starfield {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        .star-1 { width: 2px; height: 2px; top: 10%; left: 20%; animation-delay: 0s; }
+        .star-2 { width: 1px; height: 1px; top: 30%; left: 60%; animation-delay: 1s; }
+        .star-3 { width: 3px; height: 3px; top: 50%; left: 40%; animation-delay: 2s; }
+        .star-4 { width: 2px; height: 2px; top: 70%; left: 80%; animation-delay: 0.5s; }
+        .star-5 { width: 1px; height: 1px; top: 90%; left: 30%; animation-delay: 1.5s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        /* Floating Code Lines */
+        .code-line {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: rgba(244, 180, 0, 0.5);
+            animation: codeFloat 18s infinite linear;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .code-line-1 { top: 12%; left: -250px; animation-delay: 0s; }
+        .code-line-2 { top: 24%; left: -350px; animation-delay: 2s; }
+        .code-line-3 { top: 36%; left: -300px; animation-delay: 4s; }
+        .code-line-4 { top: 48%; left: -400px; animation-delay: 6s; }
+        .code-line-5 { top: 60%; left: -330px; animation-delay: 8s; }
+        .code-line-6 { top: 72%; left: -370px; animation-delay: 10s; }
+        .code-line-7 { top: 84%; left: -320px; animation-delay: 12s; }
+        .code-line-8 { top: 96%; left: -360px; animation-delay: 14s; }
+        .code-line-9 { top: 6%; left: -340px; animation-delay: 1s; }
+        .code-line-10 { top: 18%; left: -310px; animation-delay: 3s; }
+        .code-line-11 { top: 30%; left: -380px; animation-delay: 5s; }
+        .code-line-12 { top: 42%; left: -290px; animation-delay: 7s; }
+        .code-line-13 { top: 54%; left: -350px; animation-delay: 9s; }
+        .code-line-14 { top: 66%; left: -320px; animation-delay: 11s; }
+        .code-line-15 { top: 78%; left: -370px; animation-delay: 13s; }
+        .code-line-16 { top: 90%; left: -330px; animation-delay: 15s; }
+
+        @keyframes codeFloat {
+            0% { transform: translateX(0); opacity: 0; }
+            8% { opacity: 0.5; }
+            92% { opacity: 0.5; }
+            100% { transform: translateX(calc(100vw + 500px)); opacity: 0; }
+        }
+
+        /* Pulse Rings */
+        .pulse-ring {
+            position: absolute;
+            border: 2px solid rgba(244, 180, 0, 0.2);
+            border-radius: 50%;
+            animation: pulseRing 4s infinite ease-out;
+        }
+
+        .pulse-ring-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 50%;
+            animation-delay: 0s;
+        }
+
+        .pulse-ring-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .pulse-ring-3 {
+            width: 80px;
+            height: 80px;
+            top: 40%;
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.2;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.05;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
         }
 
         h1, h2, h3, h4 {
@@ -1423,6 +1839,67 @@
 </head>
 <body>
 
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="grid-lines"></div>
+        
+        <!-- Floating Particles -->
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        
+        <!-- Glowing Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        
+        <!-- Geometric Shapes -->
+        <div class="geometric-shape triangle"></div>
+        <div class="geometric-shape square"></div>
+        <div class="geometric-shape hexagon"></div>
+        
+        <!-- Starfield -->
+        <div class="starfield">
+            <div class="star star-1"></div>
+            <div class="star star-2"></div>
+            <div class="star star-3"></div>
+            <div class="star star-4"></div>
+            <div class="star star-5"></div>
+        </div>
+        
+        <!-- Floating Code Lines -->
+        <div class="code-line code-line-1">SELECT * FROM analytics WHERE performance > 90;</div>
+        <div class="code-line code-line-2">def optimize(data): return data.maximize()</div>
+        <div class="code-line code-line-3">const insights = data.analyze();</div>
+        <div class="code-line code-line-4">plot(trends, forecast);</div>
+        <div class="code-line code-line-5">dashboard.render();</div>
+        <div class="code-line code-line-6">UPDATE metrics SET efficiency = efficiency * 1.2;</div>
+        <div class="code-line code-line-7">git commit -m "Optimized data pipeline"</div>
+        <div class="code-line code-line-8">df.groupby(['category']).sum().reset_index()</div>
+        <div class="code-line code-line-9">npm run build:production</div>
+        <div class="code-line code-line-10">SELECT revenue, COUNT(*) FROM sales GROUP BY month;</div>
+        <div class="code-line code-line-11">INSERT INTO reports VALUES (NOW(), 'Q4 Analysis');</div>
+        <div class="code-line code-line-12">CREATE INDEX idx_performance ON metrics(score);</div>
+        <div class="code-line code-line-13">docker-compose up -d --build</div>
+        <div class="code-line code-line-14">curl -X POST https://api.analytics.com/data</div>
+        <div class="code-line code-line-15">ALTER TABLE users ADD COLUMN last_login TIMESTAMP;</div>
+        <div class="code-line code-line-16">SELECT AVG(price) FROM products WHERE category = 'tech';</div>
+        
+        <!-- Pulse Rings -->
+        <div class="pulse-ring pulse-ring-1"></div>
+        <div class="pulse-ring pulse-ring-2"></div>
+        <div class="pulse-ring pulse-ring-3"></div>
+        
+        <!-- Wave Container -->
+        <div class="wave-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container nav-container">
@@ -1514,7 +1991,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section section-bg">
         <div class="container about-grid">
             <div class="about-visual">
                 <img src="https://image.qwenlm.ai/public_source/a38d6625-6e90-4184-8b6a-5a5ca90f408b/1da4d30f1-c245-4101-8749-53ec7c2b4e6c.png" alt="Analytics Dashboard">
@@ -1534,7 +2011,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience-section container">
+    <section id="experience" class="experience-section container section-bg">
         <div class="section-header">
             <h2>My Experience</h2>
             <p>A journey through data, strategy, and leadership</p>
@@ -1584,7 +2061,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="skills-section container">
+    <section class="skills-section container section-bg">
         <div class="section-header">
             <h2>Technical Skills</h2>
             <p>Expertise across data analysis, development, and business intelligence</p>
@@ -1884,7 +2361,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
+    <section id="projects" class="projects-section section-bg">
         <div class="container">
             <div class="section-header">
                 <h2>Featured Projects</h2>
