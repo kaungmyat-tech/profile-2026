@@ -1835,6 +1835,73 @@
                 padding-left: 30px;
             }
         }
+
+        /* --- Mobile (App-like) Optimizations --- */
+        @media (max-width: 576px) {
+            .container { padding: 0 16px; }
+
+            header { padding: 10px 0; }
+            .nav-container { flex-wrap: wrap; gap: 8px; }
+            .logo { font-size: 1.2rem; }
+
+            /* Make top nav usable on phones (no hover dropdowns) */
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            .nav-link { font-size: 0.9rem; padding: 6px 0; }
+            .nav-dropdown { display: none; }
+
+            /* Header CTA becomes full-width like an app action */
+            header .btn.btn-primary {
+                order: 3;
+                width: 100%;
+                text-align: center;
+                padding: 10px 14px;
+                font-size: 0.85rem;
+            }
+
+            /* Hero becomes compact + "app screen" spacing */
+            .hero {
+                padding: 95px 0 60px;
+                min-height: auto;
+                gap: 25px;
+            }
+            .hero-title { font-size: 2.4rem; }
+            .hero-headline { font-size: 1rem; margin-bottom: 25px; }
+
+            /* Smaller profile photo on mobile */
+            .hero-img-wrapper {
+                width: 180px;
+                height: 220px;
+                border-radius: 16px;
+            }
+            .decor-circle { width: 140px; height: 140px; filter: blur(30px); }
+
+            /* Buttons feel like tappable app controls */
+            .hero-content .btn {
+                width: 100%;
+                max-width: 340px;
+                text-align: center;
+            }
+
+            /* Reduce section padding for mobile rhythm */
+            .about-section { padding: 70px 0; }
+            .experience-section { padding: 70px 0; }
+            .section-header h2 { font-size: 1.8rem; }
+
+            /* Prevent fixed header from hiding anchors */
+            section { scroll-margin-top: 90px; }
+        }
+
+        @media (max-width: 420px) {
+            .hero-title { font-size: 2.1rem; }
+            .hero-img-wrapper { width: 160px; height: 200px; }
+            .nav-links { gap: 10px; }
+        }
+
     </style>
 </head>
 <body>
